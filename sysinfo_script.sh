@@ -1,12 +1,975 @@
-#!/bin/bash
+# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi# set -x
+# Shell script to monitor or watch the disk space
+# It will send an email to $ADMIN, if the (free available) percentage of space is >= 90%.
+# -------------------------------------------------------------------------
+# Set admin email so that you can get email.
+ADMIN="root"
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"
+EXCLUDE_LIST="/auto/ripper"
+#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+function main_prog() {
+while read output;
+do
+#echo $output
+  usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+  partition=$(echo $output | awk '{print $2}')
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $ADMIN
+  fi
+done
+}
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi#!/bin/bash
 # Name: sysinfo.sh 
 # A menu driven script to to get information about your 
 # Linux server / computer.
 # Author: Tedley Meralus
 # Contact: @TechGameTeddy
-
 # Define variables
 LSB=/usr/bin/lsb_release
+EXCLUDE_LIST="/auto/ripper"
+usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
+partition=$(echo $output | awk '{print $2}')
+EMAIL=tmeralus@gmail.com
 # ----------------------------------
 # Display pause prompt
 # $1-> Message (optional)
@@ -31,7 +994,9 @@ pause(){
 	echo "|4. Who is online              |"
 	echo "|5. Last logged in users       |"
 	echo "|6. Free and used memory info  |"
-	echo "|7. exit                       |"
+	echo "|7. Check Disk usage           |"
+	echo "|8. Check for  high cpu        |"
+	echo "|9. exit                       |"
     echo "|------------------------------|"
 }
 # ----------------------------------
@@ -117,6 +1082,47 @@ pause(){
 	ps auxf | sort -nr -k 4 | head -5	
 	pause
 }
+#-----------------------------------
+## Display & Monitor Disk Usage info
+## Send an email if (free available) percentage is above 90%
+#-----------------------------------
+#disk_usage(){
+# set alert level 90% is default
+ALERT=90
+# Exclude list of unwanted monitoring, if several partions then use "|" to separate the partitions.
+# An example: EXCLUDE_LIST="/dev/hdd1|/dev/hdc5"#
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#
+disk_usage(){
+while read output;
+do
+#echo $output
+  if [ $usep -ge $ALERT ] ; then
+     echo "Running out of space \"$partition ($usep%)\" on server $(hostname), $(date)" | \
+     mail -s "Alert: Almost out of disk space $usep%" $EMAIL
+  fi
+done
+if [ "$EXCLUDE_LIST" != "" ] ; then
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom|${EXCLUDE_LIST}" | awk '{print $5 " " $6}' | main_prog
+else
+  df -H | grep -vE "^Filesystem|tmpfs|cdrom" | awk '{print $5 " " $6}' | main_prog
+fi
+pause
+}
+#-----------------------------------
+## View High CPU usage
+#-----------------------------------
+high_cpu(){
+while [ true ] ;do
+used=`free -m |awk 'NR==3 {print $4}'`
+
+if [ $used -lt 1000 ] && [ $used -gt 800 ]; then
+echo "Free memory is below 1000MB. Possible memory leak!!!" | /bin/mail -s "HIGH MEMORY ALERT!!!" $EMAIL
+fi
+sleep 5
+done
+pause
+}
 # ----------------------------------
 ## Exit Option ()
 # ----------------------------------
@@ -129,7 +1135,7 @@ exit_script(){
 # ---------------------------------- 
  read_input(){
 	local c
-	read -p "Enter your choice [ 1 - 7 ] " choice
+	read -p "Enter your choice [ 1 - 9 ] " choice
 	case $choice in
 		1)	os_info ;;
 		2)	host_info ;;
@@ -137,7 +1143,9 @@ exit_script(){
 		4)	user_info "who" ;;
 		5)	user_info "last" ;;
 		6)	mem_info ;;
-		7)	exit_script ;;
+		7)	disk_usage ;;
+		8)	high_cpu ;;
+		9)	exit_script ;;
 		*)	
 			echo "Please select between 1 to 7 choice only."
 			pause
