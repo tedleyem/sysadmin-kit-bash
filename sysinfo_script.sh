@@ -9,6 +9,7 @@ LSB=/usr/bin/lsb_release
 EXCLUDE_LIST="/auto/ripper"
 usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
 partition=$(echo $output | awk '{print $2}')
+alias="alias" 
 EMAIL=tmeralus@gmail.com
 # ----------------------------------
 # Display pause prompt
@@ -24,20 +25,24 @@ pause(){
 # ----------------------------------
  show_menu(){
     date
-    echo "|------------------------------|"
-    echo "|        System Info           |"
-    echo "|------------------------------|"
-    echo "|                              |"
+        echo "|------------------------------|"
+        echo "|        System Info           |"
+        echo "|------------------------------|"
+        echo "|                              |"
 	echo "|1. Operating system info      |"
 	echo "|2. Hostname and dns info      |"
 	echo "|3. Network info               |"
 	echo "|4. Who is online              |"
 	echo "|5. Last logged in users       |"
 	echo "|6. Free and used memory info  |"
-	echo "|7. Check Disk usage           |"
-	echo "|8. Check for  high cpu        |"
-	echo "|9. exit                       |"
-    echo "|------------------------------|"
+	echo "|7. Check memory processes     |"
+	echo "|8. Check Disk usage           |"
+	echo "|9. Check for  high cpu        |"
+	echo "|10. Check alias for $USER     |"
+	echo "|                              |"  
+	echo "| Type 'e' to exit script      |"
+	echo "|                              |"
+    	echo "|------------------------------|"
 }
 # ----------------------------------
 # Display header 
@@ -109,13 +114,19 @@ pause(){
 # Display used and free memory info
 # ----------------------------------
  mem_info(){
-	write_header " Free and used memory "
-	free -m
-    
+	#write_header " Free memory MB "
+	#free -m
+	write_header " Free memory "
+    	free -h
     echo "*********************************"
 	echo "*** Virtual memory statistics ***"
     echo "*********************************"
 	vmstat
+}
+# ----------------------------------
+# Memory Leak Top 5 memory eating process
+# ----------------------------------
+ memory_leak(){
     echo "***********************************"
 	echo "*** Top 5 memory eating process ***"
     echo "***********************************"	
@@ -163,6 +174,20 @@ sleep 5
 done
 pause
 }
+#-----------------------------------
+## Check Alias's set by current user
+#-----------------------------------
+alias_check(){
+$alias
+}
+# ----------------------------------
+## Add to Bash Profile
+# ----------------------------------
+add_to_bashp(){
+pause
+	
+}
+# 
 # ----------------------------------
 ## Exit Option ()
 # ----------------------------------
@@ -175,7 +200,7 @@ exit_script(){
 # ---------------------------------- 
  read_input(){
 	local c
-	read -p "Enter your choice [ 1 - 9 ] " choice
+	read -p "Enter your choice [ 1 - 10 ] " choice
 	case $choice in
 		1)	os_info ;;
 		2)	host_info ;;
@@ -183,11 +208,14 @@ exit_script(){
 		4)	user_info "who" ;;
 		5)	user_info "last" ;;
 		6)	mem_info ;;
-		7)	disk_usage ;;
-		8)	high_cpu ;;
-		9)	exit_script ;;
+		7)	memory_leak ;;
+		8)	disk_usage ;;
+		9)	high_cpu ;;
+		10)	alias_check ;;
+		[eE])	exit_script ;;
+		[bB])   add_to_bashp ;;
 		*)	
-			echo "Please select between 1 to 7 choice only."
+			echo "Please select between 1 to 10 choice only."
 			pause
 	esac
 }
