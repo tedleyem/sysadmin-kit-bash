@@ -1,25 +1,5 @@
-A collection of useful scripts used for Linux sysadmins
-bundled into one big script.
-
-###  |-----------------------------------------------------------------------------------" ###
-###  |-----------------------------------------------------------------------------------" ###
-###  |-----------------------------Sysadmin Toolkit------------------------------------- " ###
-###  |-----------------------------------------------------------------------------------" ###
-###  | Essential tools/utilities to finish 	                  	                        " ###
-###  | common sysadmin tasks                                                             " ###
-###  | created By @TechGameTeddy                                                         " ###
-###  |                                                                                   " ###
-###  |1. Backup Script                                                                   " ###
-###  |2. Add to .bashrc                                                                  " ###
-###  |3. Check High CPU usage                                                            " ###
-###  |5. Check Disk Usage                                                                " ###
-###  |4. Database Backup                                                                 " ###
-###  |6. New user script                                                                 " ###
-###  |7. Sysinfo script                                                                  " ###
-###  |8. Ranger -Terminal File Manager                                                   " ###
-###  |9. HTOP - Terminal based sys tool                                                  " ###
-###  |10. Exit                                                                           " ###
-###  |-----------------------------------------------------------------------------------" ###
+# Sysadmin Kit
+## The Sysadmin Kit is a collection of useful scripts used for Linux sysadmins bundled into one big script.
 
 
 ## Screenshots ##
