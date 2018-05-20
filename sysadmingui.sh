@@ -1,4 +1,4 @@
-# Name: Sysadmin Kit 
+# Name: Sysadmin Kit
 # Author: Tedley Meralus
 # Contact: @TechGameTeddy
 # Menu driven script to to quickly run common syadmin tasks
@@ -13,35 +13,36 @@ ALLAPPS="android-tools-adb android-tools-fastboot chromium-browser docker elinks
 show_menus() {
 	clear
 	date
-	echo "|-----------------------------------------------------------------------------------"
-	echo "|-----------------------------------------------------------------------------------"
-	echo "|-----------------------------Sysadmin Toolkit------------------------------------- "
-	echo "|-----------------------------------------------------------------------------------"
-	echo "|.dP'Y8 Yb  dP .dP''Y8    db    8888b.  8b    d8 88 88b 88     88  dP 88 888888     "
-	echo "|	`Ybo.'  YbdP  `Ybo.'   dPYb    8I  Yb 88b  d88 88 88Yb88     88odP  88   88       "
-	echo "|	o.`Y8b   8P   o.`Y8b  dP__Yb   8I  dY 88YbdP88 88 88 Y88     88'Yb  88   88       "
-	echo "|	8bodP'  dP    8bodP' dP""""Yb 8888Y'  88 YY 88 88 88  Y8     88  Yb 88   88       "
-	echo "|-----------------------------------------------------------------------------------"
-	echo "|-----------------------------------------------------------------------------------"
-	echo "|-----------------------------------------------------------------------------------"
-	echo "| Essential tools/utilities to finish 	        	                          "
-	echo "| common sysadmin tasks                                                             "
-	echo "| created By @TechGameTeddy                                                         "
-	echo "|                                                                                   "
-	echo "|1. Backup Script                                                                   "
-	echo "|2. Add to .bashrc                                                                  "
-	echo "|3. Check High CPU usage                                                            "
-	echo "|4. Database Backup                                                                 "
-	echo "|5. Check Disk Usage                                                                "
-	echo "|6. New user script                                                                 "
-	echo "|7. Sysinfo script                                                                  "
-	echo "|8. Ranger -Terminal File Manager                                                   "
-	echo "|9. HTOP - Terminal based sys tool                                                  "
-	echo "|10. Exit                                                                           "
-	echo "|-----------------------------------------------------------------------------------"
+	echo "|-----------------------------------------------------------------------------------|"
+	echo "|-----------------------------------------------------------------------------------|"
+	echo "|-----------------------------Sysadmin Toolkit------------------------------------- |"
+	echo "|-----------------------------------------------------------------------------------|"
+	echo "|.dP'Y8 Yb  dP .dP''Y8    db    8888b. 8b   d8  88 88b   88    88  dP 88 888888     |"
+	echo "| Ybo.'  YbdP   Ybo.'   dPYb    8I  Yb 88b  d88 88 88 Yb 88    88odP  88   88       |"
+	echo "|o. Y8b   8P   o. Y8b  dP__Yb   8I  dY 88YbdP88 88 88  Y 88    88 Yb  88   88       |"
+	echo "|8bodP   dP    8bodP' dP""""Yb 8888Y   88 YY 88 88 88   Y8     88  Yb 88   88       |"
+	echo "|-----------------------------------------------------------------------------------|"
+	echo "|-----------------------------------------------------------------------------------|"
+	echo "|-----------------------------------------------------------------------------------|"
+	echo "| Essential tools/utilities to finish 	        	                                  |"
+	echo "| common sysadmin tasks                                                             |"
+	echo "| created By @TechGameTeddy                                                         |"
+	echo "|                                                                                   |"
+	echo "|1. Backup Script                                                                   |"
+	echo "|2. Add to .bashrc                                                                  |"
+	echo "|3. Check High CPU usage                                                            |"
+	echo "|4. Database Backup                                                                 |"
+	echo "|5. Check Disk Usage                                                                |"
+	echo "|6. New user script                                                                 |"
+	echo "|7. Sysinfo script                                                                  |"
+	echo "|8. Ranger -Terminal File Manager                                                   |"
+	echo "|9. HTOP - Terminal based sys tool                                                  |"
+	echo "|10. Unused tool                                                                    |"
+	echo "|                                                                                   |"
+	echo "| Type 'e' to exit script                                                           |"
+	echo "|                                                                                   |"
+	echo "|-----------------------------------------------------------------------------------|"
 }
-
-
 # ----------------------------------
 #  Return functions
 # ----------------------------------
@@ -55,64 +56,84 @@ backtomain(){
   show_menus
 }
 # ----------------------------------
-#  Main Menu Option
+#  Main Menu Options
 # ----------------------------------
 one(){
-	while true; do
-	read -p "Are you sure you want to run the unattended installer?[y/n]" input
-	case $input in
-	[yY][eE][sS]|[yY])
-		uinstaller
-		;;
-	[nN][oO]|[nN])
-		backtomain
-       		break;;
-    *)
-	echo "Invalid input..."
-	echo "Please type (y)Yes or (n)No"
-	;;
-esac
-done
-        pause
+	numbertest
+	pause
 }
-## Option two Update PPA List ()
+## Option two
 two(){
-	sudo apt-add-repository ${ALLPPA[*]}
-        pause
+	numbertest
+	pause
 }
-## Option three Check Software List()
+## Option three
 three(){
-	software_list
-        #pause
+	numbertest
+	pause
 }
-## Option four Exit ()
+## Option four
 four(){
+	numbertest
+	pause
+}
+five(){
+	numbertest
+	pause
+}
+six(){
+	numbertest
+	pause
+}
+seven(){
+	numbertest
+	pause
+}
+eight(){
+	numbertest
+	pause
+}
+nine(){
+	numbertest
+	pause
+}
+ten(){
+	numbertest
+	pause
+}
+# ----------------------------------
+## Exit Option ()
+# ----------------------------------
+exit_script(){
 	clear
 	exit
+}
+numbertest(){
+  read -p "no function used right now..."
+  backtomain
 }
 # ----------------------------------
 #  MAIN MENU
 # ----------------------------------
 read_options(){
 	local choice
-	read -p "Enter your choice [ 1 - 4] " choice
+	read -p "Enter your choice [ 1 - 10] " choice
 	case $choice in
 		1) one    ;;
 		2) two    ;;
 		3) three  ;;
 		4) four   ;;
-		4) five   ;;
-		4) six   ;;
-		4) seven   ;;
-		4) eight   ;;
-		4) nine   ;;
-		4) ten   ;;
+		5) five   ;;
+		6) six   ;;
+		7) seven   ;;
+		8) eight   ;;
+		9) nine   ;;
+		10) ten   ;;
+		[eE])	exit_script ;;
 		*) echo -e "${RED}Error...${STD}" && sleep 2
 	esac
 }
 
-
-}
 # ----------------------------------
 # Trap CTRL+C, CTRL+Z and quit singles
 # ----------------------------------
@@ -126,4 +147,4 @@ do
 	show_menus
 	read_options
 	date_and_time
-
+done

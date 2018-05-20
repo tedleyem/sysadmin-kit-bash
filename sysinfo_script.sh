@@ -1,6 +1,6 @@
 #!/bin/bash
-# Name: sysinfo.sh 
-# A menu driven script to to get information about your 
+# Name: sysinfo.sh
+# A menu driven script to to get information about your
 # Linux server / computer.
 # Author: Tedley Meralus
 # Contact: @TechGameTeddy
@@ -9,7 +9,7 @@ LSB=/usr/bin/lsb_release
 EXCLUDE_LIST="/auto/ripper"
 usep=$(echo $output | awk '{ print $1}' | cut -d'%' -f1)
 partition=$(echo $output | awk '{print $2}')
-alias="alias" 
+alias="alias"
 EMAIL=tmeralus@gmail.com
 # ----------------------------------
 # Display pause prompt
@@ -39,13 +39,13 @@ pause(){
 	echo "|8. Check Disk usage           |"
 	echo "|9. Check for  high cpu        |"
 	echo "|10. Check alias for $USER     |"
-	echo "|                              |"  
+	echo "|                              |"
 	echo "| Type 'e' to exit script      |"
 	echo "|                              |"
     	echo "|------------------------------|"
 }
 # ----------------------------------
-# Display header 
+# Display header
 # ----------------------------------
  write_header(){
 	local h="$@"
@@ -97,18 +97,18 @@ pause(){
 	echo "**************************************"
 	netstat -i
 
-	pause 
+	pause
 }
 # ----------------------------------
 # Shows  list of users currently logged on and
-# Show list of recently loggged in users  
-# ---------------------------------- 
+# Show list of recently loggged in users
+# ----------------------------------
  user_info(){
 	local cmd="$1"
-	case "$cmd" in 
+	case "$cmd" in
 		who) write_header " Who is online "; who -H; pause ;;
 		last) write_header " List of last logged in users "; last ; pause ;;
-	esac 
+	esac
 }
 # ----------------------------------
 # Display used and free memory info
@@ -129,8 +129,8 @@ pause(){
  memory_leak(){
     echo "***********************************"
 	echo "*** Top 5 memory eating process ***"
-    echo "***********************************"	
-	ps auxf | sort -nr -k 4 | head -5	
+    echo "***********************************"
+	ps auxf | sort -nr -k 4 | head -5
 	pause
 }
 #-----------------------------------
@@ -185,19 +185,15 @@ $alias
 # ----------------------------------
 add_to_bashp(){
 pause
-	
+
 }
-# 
-# ----------------------------------
-## Exit Option ()
-# ----------------------------------
 exit_script(){
 	clear
 	exit
 }
 # ----------------------------------
-# Keyboard input and make a decision 
-# ---------------------------------- 
+# Keyboard input and make a decision
+# ----------------------------------
  read_input(){
 	local c
 	read -p "Enter your choice [ 1 - 10 ] " choice
@@ -214,7 +210,7 @@ exit_script(){
 		10)	alias_check ;;
 		[eE])	exit_script ;;
 		[bB])   add_to_bashp ;;
-		*)	
+		*)
 			echo "Please select between 1 to 10 choice only."
 			pause
 	esac
@@ -230,6 +226,6 @@ trap '' SIGINT SIGQUIT SIGTSTP
 while true
 do
 	clear
- 	show_menu	
- 	read_input  
+ 	show_menu
+ 	read_input
 done
